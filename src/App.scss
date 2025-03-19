@@ -1,0 +1,208 @@
+$primary-color: #4caf50;
+$danger-color: #ff3b30;
+$bg-light: #f4f4f4;
+$bg-dark: #222;
+$text-light: #000;
+$text-dark: #fff;
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: $bg-light;
+    transition: background 0.3s;
+    background-image: url(./assets/todolist.jpg);
+    background-size: cover;
+    font-family: 'Permanent Marker', cursive;
+
+
+}
+
+.container {
+    width: 400px;
+    background: rgb(232, 208, 238);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.dark {
+    background: $bg-dark;
+    color: $text-dark;
+}
+
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 15px;
+
+    &:hover {
+        background-color: #6e5275;
+        color: $text-dark;
+    }
+}
+
+.dark .theme-toggle {
+    color: $text-dark;
+}
+
+.todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+    input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        font-family: 'Permanent Marker', sans-serif;
+    }
+
+    button {
+        background: $primary-color;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+
+        &:hover {
+            background: darken($primary-color, 10%);
+        }
+    }
+}
+
+.date-filter {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .react-datepicker__input-container {
+        width: auto;
+    }
+
+    .react-datepicker__input-container input {
+        width: auto;
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        min-width: 120px;
+        font-family: 'Permanent Marker', sans-serif;
+    }
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+h2 {
+    margin-top: 20px;
+    color: $primary-color;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-family: 'Permanent Marker', sans-serif;
+
+
+    &.completed {
+        text-decoration: line-through;
+        color: gray;
+        opacity: 0.6;
+    }
+
+    .todo-text {
+        flex: 1;
+        cursor: pointer;
+    }
+
+    .actions {
+        display: flex;
+        gap: 5px;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    }
+
+    .delete-btn {
+        background: $danger-color;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+            background: darken($danger-color, 10%);
+        }
+    }
+
+    .complete-btn {
+        background: $primary-color;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+            background: darken($primary-color, 10%);
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .todo-form {
+        flex-direction: column;
+    }
+
+    .date-filter {
+        width: 100%;
+    }
+}
